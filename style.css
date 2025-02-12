@@ -1,0 +1,939 @@
+/* Settings */
+/* Base Styles */
+html,
+body {
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+    font-family: "Caveat", serif;
+    background: radial-gradient(
+        ellipse at center,
+        #ff6b81,
+        #ff3d66 100%
+    );
+    color: #fff;
+}
+
+/* Love Letters */
+.love {
+    position: relative;
+    margin-bottom: 6em;
+    padding-top: 4em;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .love {
+        left: 50%;
+        margin-bottom: 0;
+        margin-left: -9.375em;
+        padding-top: 10em;
+        transform: translate(-50%, 0);
+    }
+}
+
+.letter {
+    top: 0;
+    left: 0;
+    display: inline-block;
+    font-size: 4vmin;
+    text-shadow: 
+        0 0 0.25em red,
+        0 0 0.35em red,
+        0 0 0.45em transparent,
+        0 0 0.55em transparent,
+        0 0 0.65em transparent;
+}
+
+@media (min-width: 600px) {
+    .letter {
+        offset-distance: 0;
+        offset-path: path('m0, 0 c100, -150 200, -150 300, 0');
+    }
+}
+
+.letter:empty {
+    padding: 0 0.2em;
+}
+
+/* Generate letter animations */
+.letter:nth-child(1) { /* I */
+animation: twinkle 2.55s infinite 0.15s;
+offset-distance: 5.88%;
+}
+
+.letter:nth-child(2) { /* space */
+animation: twinkle 2.55s infinite 0.30s;
+offset-distance: 11.76%;
+}
+
+.letter:nth-child(3) { /* L */
+animation: twinkle 2.55s infinite 0.45s;
+offset-distance: 17.64%;
+}
+
+.letter:nth-child(4) { /* o */
+animation: twinkle 2.55s infinite 0.60s;
+offset-distance: 23.52%;
+}
+
+.letter:nth-child(5) { /* v */
+animation: twinkle 2.55s infinite 0.75s;
+offset-distance: 29.40%;
+}
+
+.letter:nth-child(6) { /* e */
+animation: twinkle 2.55s infinite 0.90s;
+offset-distance: 35.28%;
+}
+
+.letter:nth-child(7) { /* space */
+animation: twinkle 2.55s infinite 1.05s;
+offset-distance: 41.16%;
+}
+
+.letter:nth-child(8) { /* Y */
+animation: twinkle 2.55s infinite 1.20s;
+offset-distance: 47.04%;
+}
+
+.letter:nth-child(9) { /* o */
+animation: twinkle 2.55s infinite 1.35s;
+offset-distance: 52.92%;
+}
+
+.letter:nth-child(10) { /* u */
+animation: twinkle 2.55s infinite 1.50s;
+offset-distance: 58.80%;
+}
+
+.letter:nth-child(11) { /* space */
+animation: twinkle 2.55s infinite 1.65s;
+offset-distance: 64.68%;
+}
+
+.letter:nth-child(12) { /* N */
+animation: twinkle 2.55s infinite 1.80s;
+offset-distance: 70.56%;
+}
+
+.letter:nth-child(13) { /* a */
+animation: twinkle 2.55s infinite 1.95s;
+offset-distance: 76.44%;
+}
+
+.letter:nth-child(14) { /* v */
+animation: twinkle 2.55s infinite 2.10s;
+offset-distance: 82.32%;
+}
+
+.letter:nth-child(15) { /* y */
+animation: twinkle 2.55s infinite 2.25s;
+offset-distance: 88.20%;
+}
+
+.letter:nth-child(16) { /* a */
+animation: twinkle 2.55s infinite 2.40s;
+offset-distance: 94.08%;
+}
+
+.letter:nth-child(17) { /* ! */
+animation: twinkle 2.55s infinite 2.55s;
+offset-distance: 100%;
+}
+
+
+@keyframes twinkle {
+    50% {
+        text-shadow: 
+            0 0 0.25em red,
+            0 0 0.35em red,
+            0 0 0.45em red,
+            0 0 0.55em red,
+            0 0 0.65em red;
+    }
+}
+
+/* Roses */
+.roses {
+    position: relative;
+    height: 50vmin;
+    width: 100%;
+    animation: grow 10s forwards;
+    transform: rotate(-180deg);
+}
+
+@keyframes grow {
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+.rose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    perspective: 50em;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    transform-style: preserve-3d;
+}
+
+/* Generate rose sizes */
+.rose:nth-child(1) { 
+height: 4vmin; 
+width: 4vmin; 
+z-index: 7;  /* Topmost rose */
+}
+.rose:nth-child(2) { 
+height: 8vmin; 
+width: 8vmin; 
+z-index: 6;
+}
+.rose:nth-child(3) { 
+height: 12vmin; 
+width: 12vmin; 
+z-index: 5;
+}
+.rose:nth-child(4) { 
+height: 16vmin; 
+width: 16vmin; 
+z-index: 4;
+}
+.rose:nth-child(5) { 
+height: 20vmin; 
+width: 20vmin; 
+z-index: 3;
+}
+.rose:nth-child(6) { 
+height: 24vmin; 
+width: 24vmin; 
+z-index: 2;
+}
+.rose:nth-child(7) { 
+height: 28vmin; 
+width: 28vmin; 
+z-index: 1;  /* Bottom rose */
+}
+
+.rose:nth-child(1) .pedal:nth-child(1) { animation: flower-1 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(2) { animation: flower-2 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(3) { animation: flower-3 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(4) { animation: flower-4 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(5) { animation: flower-5 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(6) { animation: flower-6 10s forwards 2.85s; }
+.rose:nth-child(1) .pedal:nth-child(7) { animation: flower-7 10s forwards 2.85s; }
+
+.rose:nth-child(2) .pedal:nth-child(1) { animation: flower-1 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(2) { animation: flower-2 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(3) { animation: flower-3 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(4) { animation: flower-4 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(5) { animation: flower-5 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(6) { animation: flower-6 10s forwards 2.40s; }
+.rose:nth-child(2) .pedal:nth-child(7) { animation: flower-7 10s forwards 2.40s; }
+
+.rose:nth-child(3) .pedal:nth-child(1) { animation: flower-1 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(2) { animation: flower-2 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(3) { animation: flower-3 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(4) { animation: flower-4 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(5) { animation: flower-5 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(6) { animation: flower-6 10s forwards 2.00s; }
+.rose:nth-child(3) .pedal:nth-child(7) { animation: flower-7 10s forwards 2.00s; }
+
+.rose:nth-child(4) .pedal:nth-child(2) { animation: flower-2 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(1) { animation: flower-1 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(3) { animation: flower-3 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(4) { animation: flower-4 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(5) { animation: flower-5 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(6) { animation: flower-6 10s forwards 1.75s; }
+.rose:nth-child(4) .pedal:nth-child(7) { animation: flower-7 10s forwards 1.75s; }
+
+.rose:nth-child(5) .pedal:nth-child(1) { animation: flower-1 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(2) { animation: flower-2 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(3) { animation: flower-3 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(4) { animation: flower-4 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(5) { animation: flower-5 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(6) { animation: flower-6 10s forwards 1.40s; }
+.rose:nth-child(5) .pedal:nth-child(7) { animation: flower-7 10s forwards 1.40s; }
+
+.rose:nth-child(6) .pedal:nth-child(1) { animation: flower-1 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(2) { animation: flower-2 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(3) { animation: flower-3 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(4) { animation: flower-4 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(5) { animation: flower-5 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(6) { animation: flower-6 10s forwards 1.05s; }
+.rose:nth-child(6) .pedal:nth-child(7) { animation: flower-7 10s forwards 1.05s; }
+
+.rose:nth-child(7) .pedal:nth-child(1) { animation: flower-1 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(2) { animation: flower-2 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(3) { animation: flower-3 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(4) { animation: flower-4 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(5) { animation: flower-5 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(6) { animation: flower-6 10s forwards 0.60s; }
+.rose:nth-child(7) .pedal:nth-child(7) { animation: flower-7 10s forwards 0.60s; }
+
+@keyframes flower-1 {
+100% {
+transform: translate(-50%, 0) rotateZ(51.42857deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-2 {
+100% {
+transform: translate(-50%, 0) rotateZ(102.85714deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-3 {
+100% {
+transform: translate(-50%, 0) rotateZ(154.28571deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-4 {
+100% {
+transform: translate(-50%, 0) rotateZ(205.71428deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-5 {
+100% {
+transform: translate(-50%, 0) rotateZ(257.14285deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-6 {
+100% {
+transform: translate(-50%, 0) rotateZ(308.57142deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+@keyframes flower-7 {
+100% {
+transform: translate(-50%, 0) rotateZ(360deg) rotateX(0) rotateY(8deg) scale(1);
+}
+}
+
+.rose:nth-child(1) .pedal:before { background: darkred; }
+.rose:nth-child(2) .pedal:before { background: #cc0000; }
+.rose:nth-child(3) .pedal:before { background: #b30000; }
+.rose:nth-child(4) .pedal:before { background: #990000; }
+.rose:nth-child(5) .pedal:before { background: #800000; }
+.rose:nth-child(6) .pedal:before { background: #660000; }
+.rose:nth-child(7) .pedal:before { background: #4d0000; }
+
+.roses {
+position: relative;
+height: 50vmin;
+width: 100%;
+animation: grow 10s forwards;
+transform: rotate(-180deg);
+}
+
+.rose {
+position: absolute;
+top: 50%;
+left: 50%;
+perspective: 50em;
+transform: translate(-50%, -50%) rotate(-25deg);
+transform-style: preserve-3d;
+}
+
+.pedal {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform-origin: center 100%;
+}
+
+.pedal:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    border-radius: 0.35em 50% 35% 50%;
+    transform: rotate(45deg);
+}
+
+@keyframes grow {
+100% {
+    transform: rotate(15deg);
+}
+}
+
+/* Bubbles */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    z-index: 200;
+    border-radius: 50%;
+}
+
+/* Generate bubble animations */
+/* Individual bubble styles */
+.bubble:nth-child(1) {
+top: 20%;
+left: 30%;
+height: 10vmin;
+width: 10vmin;
+animation: love-burst 3s infinite 0.15s;
+box-shadow: inset 0 0 0 5vmin #fff;
+transform: translate(0, 1.25em) scale(0);
+}
+
+.bubble:nth-child(2) {
+top: 45%;
+left: 15%;
+height: 14vmin;
+width: 14vmin;
+animation: love-burst 3s infinite 0.30s;
+box-shadow: inset 0 0 0 7vmin #fff;
+transform: translate(0, 0.8em) scale(0);
+}
+
+.bubble:nth-child(3) {
+top: 75%;
+left: 35%;
+height: 8vmin;
+width: 8vmin;
+animation: love-burst 3s infinite 0.45s;
+box-shadow: inset 0 0 0 4vmin #fff;
+transform: translate(0, 1.1em) scale(0);
+}
+
+.bubble:nth-child(4) {
+top: 25%;
+left: 65%;
+height: 12vmin;
+width: 12vmin;
+animation: love-burst 3s infinite 0.60s;
+box-shadow: inset 0 0 0 6vmin #fff;
+transform: translate(0, 0.95em) scale(0);
+}
+
+.bubble:nth-child(5) {
+top: 55%;
+left: 80%;
+height: 16vmin;
+width: 16vmin;
+animation: love-burst 3s infinite 0.75s;
+box-shadow: inset 0 0 0 8vmin #fff;
+transform: translate(0, 0.7em) scale(0);
+}
+
+.bubble:nth-child(6) {
+top: 15%;
+left: 45%;
+height: 9vmin;
+width: 9vmin;
+animation: love-burst 3s infinite 0.90s;
+box-shadow: inset 0 0 0 4.5vmin #fff;
+transform: translate(0, 1.15em) scale(0);
+}
+
+.bubble:nth-child(7) {
+top: 85%;
+left: 20%;
+height: 13vmin;
+width: 13vmin;
+animation: love-burst 3s infinite 1.05s;
+box-shadow: inset 0 0 0 6.5vmin #fff;
+transform: translate(0, 0.85em) scale(0);
+}
+
+.bubble:nth-child(8) {
+top: 35%;
+left: 90%;
+height: 11vmin;
+width: 11vmin;
+animation: love-burst 3s infinite 1.20s;
+box-shadow: inset 0 0 0 5.5vmin #fff;
+transform: translate(0, 1.05em) scale(0);
+}
+
+.bubble:nth-child(9) {
+top: 65%;
+left: 40%;
+height: 15vmin;
+width: 15vmin;
+animation: love-burst 3s infinite 1.35s;
+box-shadow: inset 0 0 0 7.5vmin #fff;
+transform: translate(0, 0.75em) scale(0);
+}
+
+.bubble:nth-child(10) {
+top: 10%;
+left: 75%;
+height: 7vmin;
+width: 7vmin;
+animation: love-burst 3s infinite 1.50s;
+box-shadow: inset 0 0 0 3.5vmin #fff;
+transform: translate(0, 1.3em) scale(0);
+}
+
+.bubble:nth-child(11) {
+top: 40%;
+left: 25%;
+height: 12vmin;
+width: 12vmin;
+animation: love-burst 3s infinite 1.65s;
+box-shadow: inset 0 0 0 6vmin #fff;
+transform: translate(0, 0.9em) scale(0);
+}
+
+.bubble:nth-child(12) {
+top: 70%;
+left: 60%;
+height: 8vmin;
+width: 8vmin;
+animation: love-burst 3s infinite 1.80s;
+box-shadow: inset 0 0 0 4vmin #fff;
+transform: translate(0, 1.2em) scale(0);
+}
+
+.bubble:nth-child(13) {
+top: 30%;
+left: 85%;
+height: 14vmin;
+width: 14vmin;
+animation: love-burst 3s infinite 1.95s;
+box-shadow: inset 0 0 0 7vmin #fff;
+transform: translate(0, 0.8em) scale(0);
+}
+
+.bubble:nth-child(14) {
+top: 50%;
+left: 10%;
+height: 10vmin;
+width: 10vmin;
+animation: love-burst 3s infinite 2.10s;
+box-shadow: inset 0 0 0 5vmin #fff;
+transform: translate(0, 1.1em) scale(0);
+}
+
+.bubble:nth-child(15) {
+top: 80%;
+left: 70%;
+height: 16vmin;
+width: 16vmin;
+animation: love-burst 3s infinite 2.25s;
+box-shadow: inset 0 0 0 8vmin #fff;
+transform: translate(0, 0.7em) scale(0);
+}
+
+.bubble:nth-child(16) {
+top: 25%;
+left: 50%;
+height: 9vmin;
+width: 9vmin;
+animation: love-burst 3s infinite 2.40s;
+box-shadow: inset 0 0 0 4.5vmin #fff;
+transform: translate(0, 1.15em) scale(0);
+}
+
+.bubble:nth-child(17) {
+top: 60%;
+left: 30%;
+height: 13vmin;
+width: 13vmin;
+animation: love-burst 3s infinite 2.55s;
+box-shadow: inset 0 0 0 6.5vmin #fff;
+transform: translate(0, 0.85em) scale(0);
+}
+
+.bubble:nth-child(18) {
+top: 15%;
+left: 95%;
+height: 11vmin;
+width: 11vmin;
+animation: love-burst 3s infinite 2.70s;
+box-shadow: inset 0 0 0 5.5vmin #fff;
+transform: translate(0, 1.05em) scale(0);
+}
+
+.bubble:nth-child(19) {
+top: 90%;
+left: 45%;
+height: 15vmin;
+width: 15vmin;
+animation: love-burst 3s infinite 2.85s;
+box-shadow: inset 0 0 0 7.5vmin #fff;
+transform: translate(0, 0.75em) scale(0);
+}
+
+.bubble:nth-child(20) {
+top: 35%;
+left: 75%;
+height: 7vmin;
+width: 7vmin;
+animation: love-burst 3s infinite 3.00s;
+box-shadow: inset 0 0 0 3.5vmin #fff;
+transform: translate(0, 1.3em) scale(0);
+}
+
+.bubble:nth-child(odd) .heart {
+animation: love 3s forwards infinite;
+transform: scale(0.5) rotate(15deg);
+}
+
+/* Even-numbered bubbles */
+.bubble:nth-child(even) .heart {
+animation: love 3s forwards infinite;
+transform: scale(0.5) rotate(-15deg);
+}
+
+/* ... continue for all 20 bubbles */
+
+@keyframes love-burst {
+    50%,
+    100% {
+        box-shadow: inset 0 0 0 0 red;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.heart {
+    fill: #fff;
+    opacity: 0;
+}
+
+@keyframes love {
+    50% {
+        fill: red;
+        opacity: 1;
+    }
+}
+
+.signature {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2em;
+    text-shadow: 
+        0 0 5px rgba(255, 0, 0, 0.5),
+        0 0 10px rgba(255, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signature::before,
+.signature::after {
+    content: '❤';
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 0.8em;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.polaroid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Changed to be behind other content */
+}
+
+.polaroid {
+    position: absolute;
+    width: 100px; /* Reduced size */
+    height: 125px; /* Reduced size */
+    background: #fff;
+    padding: 6px 6px 15px 6px; /* Adjusted padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transform-origin: center;
+    animation: float 20s infinite linear;
+    border-radius: 4px;
+    border: 2px solid rgb(38, 38, 38);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 95px; /* Adjusted height */
+    object-fit: cover;
+    background: #f0f0f0;
+    filter: brightness(0.9) contrast(0.8) saturate(0.9); /* Muted colors */
+}
+
+.polaroid p {
+    margin: 3px 0 0;
+    font-family: "Caveat", serif;
+    font-weight: 800;
+    color: #2d2d2d; /* Darker text for less contrast */
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Adjusted polaroid positions to be more spread out and closer to edges */
+.polaroid:nth-child(1) { top: 2%; left: 2%; --rotation: -8deg; }
+.polaroid:nth-child(2) { top: 2%; right: 2%; --rotation: 5deg; }
+.polaroid:nth-child(3) { top: 15%; left: 1%; --rotation: -5deg; }
+.polaroid:nth-child(4) { top: 15%; right: 1%; --rotation: 8deg; }
+.polaroid:nth-child(5) { top: 30%; left: 3%; --rotation: 6deg; }
+.polaroid:nth-child(6) { top: 30%; right: 3%; --rotation: -6deg; }
+.polaroid:nth-child(7) { top: 45%; left: 2%; --rotation: -7deg; }
+.polaroid:nth-child(8) { top: 45%; right: 2%; --rotation: 7deg; }
+.polaroid:nth-child(9) { top: 60%; left: 1%; --rotation: 9deg; }
+.polaroid:nth-child(10) { top: 60%; right: 1%; --rotation: -9deg; }
+.polaroid:nth-child(11) { top: 75%; left: 2%; --rotation: -4deg; }
+.polaroid:nth-child(12) { top: 75%; right: 2%; --rotation: 4deg; }
+.polaroid:nth-child(13) { top: 90%; left: 3%; --rotation: -3deg; }
+.polaroid:nth-child(14) { top: 90%; right: 3%; --rotation: 3deg; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+    25% {
+        transform: translateY(-5px) rotate(calc(var(--rotation) + 1deg)); /* Reduced movement */
+    }
+    50% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+    75% {
+        transform: translateY(5px) rotate(calc(var(--rotation) - 1deg)); /* Reduced movement */
+    }
+}
+
+/* Letter */
+.folded-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 60px;
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    perspective: 1000px;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.folded-letter:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #f0f0f0;
+    border-right: 40px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 40px solid #f0f0f0;
+    transition: all 0.5s ease;
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
+}
+
+.folded-letter:after {
+    content: '❤';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff4b6b;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.folded-letter:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.folded-letter:hover:after {
+    animation: heartbeat 0.8s infinite;
+}
+
+.folded-letter.show {
+    animation: letterAppear 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    pointer-events: auto;
+}
+
+@keyframes letterAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(180deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1) rotate(-10deg);
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(0.95) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+/* Add decorative elements */
+.folded-letter:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4b6b, #ff6b8b);
+}
+
+/* Envelope seal effect */
+.folded-letter::after {
+    content: '❤';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff4b6b;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.letter-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 80%;
+    max-width: 850px;
+    background: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    font-family: "Caveat", serif;
+}
+
+.letter-content.open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.letter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 999;
+}
+
+.letter-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-letter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff6b6b;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.close-letter:hover {
+    transform: scale(1.1);
+}
+
+.letter-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 26px;
+    color: #333;
+}
+
+.letter-content h2 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.letter-signature {
+    text-align: right;
+    margin-top: 30px;
+    color: #ff6b6b;
+}
+
+/* Animation for the folded letter appearance */
+@keyframes letterAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+.folded-letter.show {
+    animation: letterAppear 1s ease forwards;
+    pointer-events: auto; /* Enable interactions when shown */
+}
+
