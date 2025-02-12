@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">    <style>
         /* Settings */
         /* Base Styles */
         html,
@@ -12,7 +13,7 @@
 
         html {
             overflow: hidden;
-            font-family: 'Petit Formal Script';
+            font-family: "Caveat", serif;
             background: radial-gradient(
                 ellipse at center,
                 #051838,
@@ -629,12 +630,11 @@
             width: 100%;
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1.5em;
+            font-size: 2em;
             text-shadow: 
                 0 0 5px rgba(255, 0, 0, 0.5),
                 0 0 10px rgba(255, 0, 0, 0.3);
             animation: fadeIn 2s ease-in;
-            z-index: 1000;
         }
 
         @keyframes fadeIn {
@@ -662,6 +662,287 @@
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
+
+        .polaroid-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1; /* Changed to be behind other content */
+        }
+
+        .polaroid {
+            position: absolute;
+            width: 100px; /* Reduced size */
+            height: 125px; /* Reduced size */
+            background: #fff;
+            padding: 6px 6px 15px 6px; /* Adjusted padding */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            transform-origin: center;
+            animation: float 20s infinite linear;
+            border-radius: 4px;
+            border: 2px solid rgb(38, 38, 38);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 95px; /* Adjusted height */
+            object-fit: cover;
+            background: #f0f0f0;
+            filter: brightness(0.9) contrast(0.8) saturate(0.9); /* Muted colors */
+        }
+
+        .polaroid p {
+            margin: 3px 0 0;
+            font-family: "Caveat", serif;
+            font-weight: 800;
+            color: #2d2d2d; /* Darker text for less contrast */
+            text-align: center;
+            font-size: 1em;
+        }
+
+        /* Adjusted polaroid positions to be more spread out and closer to edges */
+        .polaroid:nth-child(1) { top: 2%; left: 2%; --rotation: -8deg; }
+        .polaroid:nth-child(2) { top: 2%; right: 2%; --rotation: 5deg; }
+        .polaroid:nth-child(3) { top: 15%; left: 1%; --rotation: -5deg; }
+        .polaroid:nth-child(4) { top: 15%; right: 1%; --rotation: 8deg; }
+        .polaroid:nth-child(5) { top: 30%; left: 3%; --rotation: 6deg; }
+        .polaroid:nth-child(6) { top: 30%; right: 3%; --rotation: -6deg; }
+        .polaroid:nth-child(7) { top: 45%; left: 2%; --rotation: -7deg; }
+        .polaroid:nth-child(8) { top: 45%; right: 2%; --rotation: 7deg; }
+        .polaroid:nth-child(9) { top: 60%; left: 1%; --rotation: 9deg; }
+        .polaroid:nth-child(10) { top: 60%; right: 1%; --rotation: -9deg; }
+        .polaroid:nth-child(11) { top: 75%; left: 2%; --rotation: -4deg; }
+        .polaroid:nth-child(12) { top: 75%; right: 2%; --rotation: 4deg; }
+        .polaroid:nth-child(13) { top: 90%; left: 3%; --rotation: -3deg; }
+        .polaroid:nth-child(14) { top: 90%; right: 3%; --rotation: 3deg; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(var(--rotation));
+            }
+            25% {
+                transform: translateY(-5px) rotate(calc(var(--rotation) + 1deg)); /* Reduced movement */
+            }
+            50% {
+                transform: translateY(0) rotate(var(--rotation));
+            }
+            75% {
+                transform: translateY(5px) rotate(calc(var(--rotation) - 1deg)); /* Reduced movement */
+            }
+        }
+
+        /* Letter */
+        .folded-letter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            cursor: pointer;
+            transition: all 0.5s ease;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            perspective: 1000px;
+            opacity: 0;
+            pointer-events: none;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .folded-letter:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 30px solid #f0f0f0;
+            border-right: 40px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 40px solid #f0f0f0;
+            transition: all 0.5s ease;
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
+        }
+
+        .folded-letter:after {
+            content: '❤';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4b6b;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .folded-letter:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .folded-letter:hover:after {
+            animation: heartbeat 0.8s infinite;
+        }
+
+        .folded-letter.show {
+            animation: letterAppear 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            pointer-events: auto;
+        }
+
+        @keyframes letterAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) rotate(180deg);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1) rotate(-10deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) scale(0.95) rotate(5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+        }
+
+        /* Add decorative elements */
+        .folded-letter:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4b6b, #ff6b8b);
+        }
+
+        /* Envelope seal effect */
+        .folded-letter::after {
+            content: '❤';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4b6b;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            padding: 15px;
+            border-radius: 50%;
+        }
+        
+        .letter-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80%;
+            max-width: 850px;
+            background: #fff;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            font-family: "Caveat", serif;
+        }
+
+        .letter-content.open {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .letter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            z-index: 999;
+        }
+
+        .letter-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #ff6b6b;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .close-letter:hover {
+            transform: scale(1.1);
+        }
+
+        .letter-content p {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 26px;
+            color: #333;
+        }
+
+        .letter-content h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .letter-signature {
+            text-align: right;
+            margin-top: 30px;
+            color: #ff6b6b;
+        }
+
+        /* Animation for the folded letter appearance */
+        @keyframes letterAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) rotate(180deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+        }
+
+        .folded-letter.show {
+            animation: letterAppear 1s ease forwards;
+            pointer-events: auto; /* Enable interactions when shown */
+        }
+
     </style>
 </head>
 <body>
@@ -751,6 +1032,22 @@
         </div>
         
     </div>
+
+        <!-- Letter -->
+        <div class="folded-letter"></div>
+    
+        <div class="letter-overlay"></div>
+        <div class="letter-content">
+            <button class="close-letter">×</button>
+            <h2>My Dearest Navya</h2>
+            <p>In the quiet moments when I think of you, my heart dances with joy. Your smile brightens my darkest days, and your love makes every moment magical.</p>
+            <p>With you, every day feels like Valentine's Day. Your kindness, your strength, and your beautiful soul make me fall in love with you more and more each passing day.</p>
+            <p>Thank you for being the most amazing person in my life. You're not just my love, you're my best friend, my confidante, and my everything.</p>
+            <p>I promise to love you more with each heartbeat, to cherish every moment we share, and to be there for you always.</p>
+            <div class="letter-signature">
+                <p>Forever Yours,<br>Kushan ❤</p>
+            </div>
+        </div>
 
     <div class="bubbles">
         <div class="bubble">
@@ -893,9 +1190,95 @@
         </div>
     </div>
 
-    <div class="signature">
-        happy valentines day, navya
+    <div class="polaroid-container">
+        <div class="polaroid">
+            <img src="./img/aftermath.jpg" alt="Sunset">
+            <p>Sunset vibes</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/bleh.jpg" alt="Flowers">
+            <p>Spring flowers</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/common-sus.png" alt="Coffee">
+            <p>Morning coffee</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/dillydally.jpg" alt="Beach">
+            <p>Beach walks</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/ehehe.jpg" alt="Park">
+            <p>Park dates</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/gobble.jpg" alt="Stars">
+            <p>Stargazing</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/hehe.png" alt="Garden">
+            <p>Garden path</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/kayutie.png" alt="Picnic">
+            <p>Picnic day</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/kindawday.png" alt="Music">
+            <p>Music nights</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/sweater.jpg" alt="Dance">
+            <p>Dancing</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/w-kiss.jpg" alt="Movies">
+            <p>Movie time</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/weird kiss.jpg" alt="Clouds">
+            <p>Cloud watching</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/wkiss.jpg" alt="Ice cream">
+            <p>Sweet treats</p>
+        </div>
+        <div class="polaroid">
+            <img src="./img/yay.jpg" alt="Adventures">
+            <p>Adventures</p>
+        </div>
     </div>
+
+    <div class="signature">
+        <p>Happy Valentines Day Navu <br> Yours freaky, Kushan</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const foldedLetter = document.querySelector('.folded-letter');
+            const letterContent = document.querySelector('.letter-content');
+            const letterOverlay = document.querySelector('.letter-overlay');
+            const closeButton = document.querySelector('.close-letter');
+
+            // Show the letter after rose animation (10 seconds)
+            setTimeout(() => {
+                foldedLetter.classList.add('show');
+            }, 10000);
+
+            foldedLetter.addEventListener('click', function() {
+                letterContent.classList.add('open');
+                letterOverlay.classList.add('open');
+            });
+
+            function closeLetter() {
+                letterContent.classList.remove('open');
+                letterOverlay.classList.remove('open');
+            }
+
+            closeButton.addEventListener('click', closeLetter);
+            letterOverlay.addEventListener('click', closeLetter);
+        });
+    </script>
 
 </body>
 </html>
