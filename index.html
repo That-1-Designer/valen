@@ -9,6 +9,105 @@
 </head>
 <body>
     
+    <div class="cute-decorations">
+        <style>
+            .cute-decorations {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: -1;
+            }
+            
+            .mini-doodle {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                fill: none;
+                stroke: #ff9ecd;
+                stroke-width: 1.5;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                opacity: 0.7;
+                animation: float 20s linear infinite;
+            }
+    
+            @keyframes float {
+                0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                25% { transform: translate(10px, -10px) rotate(5deg); }
+                50% { transform: translate(0, -15px) rotate(0deg); }
+                75% { transform: translate(-10px, -10px) rotate(-5deg); }
+            }
+    
+            .mini-doodle:nth-child(2n) {
+                animation-delay: -5s;
+                stroke: #ffb8b8;
+            }
+    
+            .mini-doodle:nth-child(3n) {
+                animation-delay: -10s;
+                stroke: #c4a5ff;
+            }
+    
+            .mini-doodle:nth-child(4n) {
+                animation-delay: -15s;
+                stroke: #ffd1dc;
+            }
+        </style>
+    
+        <!-- Cute Cat -->
+        <svg class="mini-doodle" style="top: 15%; left: 10%;" viewBox="0 0 40 40">
+            <path d="M15,20 Q20,15 25,20 M10,10 Q20,25 30,10 Q32,15 30,20 Q20,35 10,20 Q8,15 10,10 Z M13,18 L13,18 M27,18 L27,18"/>
+        </svg>
+    
+        <!-- Bunny -->
+        <svg class="mini-doodle" style="top: 75%; left: 85%;" viewBox="0 0 40 40">
+            <path d="M15,25 Q20,35 25,25 M10,10 Q20,30 30,10 M12,5 L18,10 M28,5 L22,10"/>
+        </svg>
+    
+        <!-- Little Bird -->
+        <svg class="mini-doodle" style="top: 35%; left: 80%;" viewBox="0 0 40 40">
+            <path d="M20,20 Q25,15 30,20 L35,15 M20,20 Q20,25 25,25 Q15,35 10,25"/>
+        </svg>
+    
+        <!-- Heart Cup -->
+        <svg class="mini-doodle" style="top: 85%; left: 20%;" viewBox="0 0 40 40">
+            <path d="M15,15 Q20,10 25,15 Q30,20 25,25 Q20,30 15,25 Q10,20 15,15 M25,25 Q35,25 35,20 L25,15"/>
+        </svg>
+    
+        <!-- Little Plant -->
+        <svg class="mini-doodle" style="top: 25%; left: 90%;" viewBox="0 0 40 40">
+            <path d="M20,30 L20,20 Q15,15 20,10 M20,20 Q25,15 20,5 M20,20 Q30,18 25,10"/>
+        </svg>
+    
+        <!-- Star -->
+        <svg class="mini-doodle" style="top: 65%; left: 15%;" viewBox="0 0 40 40">
+            <path d="M20,10 L22,18 L30,20 L22,22 L20,30 L18,22 L10,20 L18,18 Z"/>
+        </svg>
+    
+        <!-- Cloud -->
+        <svg class="mini-doodle" style="top: 45%; left: 5%;" viewBox="0 0 40 40">
+            <path d="M10,25 Q5,25 5,20 Q5,15 10,15 Q10,10 15,10 Q20,10 20,15 Q25,10 30,15 Q35,15 35,20 Q35,25 30,25 Q25,30 15,25"/>
+        </svg>
+    
+        <!-- Little House -->
+        <svg class="mini-doodle" style="top: 15%; left: 75%;" viewBox="0 0 40 40">
+            <path d="M10,25 L10,15 L20,5 L30,15 L30,25 L10,25 M15,25 L15,18 L25,18 L25,25"/>
+        </svg>
+    
+        <!-- Music Note -->
+        <svg class="mini-doodle" style="top: 55%; left: 95%;" viewBox="0 0 40 40">
+            <path d="M20,10 L20,25 Q15,30 15,25 Q15,20 20,25 M20,10 L25,8"/>
+        </svg>
+    
+        <!-- Small Cake -->
+        <svg class="mini-doodle" style="top: 5%; left: 25%;" viewBox="0 0 40 40">
+            <path d="M10,20 Q20,15 30,20 Q30,25 20,30 Q10,25 10,20 M15,20 L15,15 M25,20 L25,15 M20,20 L20,12"/>
+        </svg>
+    </div>
+
     <div class="love">
         <span class="letter">I</span>
         <span class="letter"></span>
