@@ -11,7 +11,7 @@ html {
     font-family: "Caveat", serif;
     background: radial-gradient(
         ellipse at center,
-        #ff6b81,
+        #ff899b,
         #ff3d66 100%
     );
     color: #fff;
@@ -315,15 +315,80 @@ transform: translate(-50%, 0) rotateZ(308.57142deg) rotateX(0) rotateY(8deg) sca
 transform: translate(-50%, 0) rotateZ(360deg) rotateX(0) rotateY(8deg) scale(1);
 }
 }
+/* Base rose structure with enhanced red gradients */
 
-.rose:nth-child(1) .pedal:before { background: darkred; }
-.rose:nth-child(2) .pedal:before { background: #cc0000; }
-.rose:nth-child(3) .pedal:before { background: #b30000; }
-.rose:nth-child(4) .pedal:before { background: #990000; }
-.rose:nth-child(5) .pedal:before { background: #800000; }
-.rose:nth-child(6) .pedal:before { background: #660000; }
-.rose:nth-child(7) .pedal:before { background: #4d0000; }
+.rose:nth-child(1) .pedal:before { 
+    background: linear-gradient(135deg, white 50%, #ffe0e0 70%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -2px -2px 4px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(2) .pedal:before { 
+    background: linear-gradient(135deg, white 50%, #ffe0e0 75%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -3px -3px 6px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(3) .pedal:before { 
+    background: linear-gradient(135deg, white 55%, #ffe0e0 75%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -4px -4px 8px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(4) .pedal:before { 
+    background: linear-gradient(135deg, white 60%, #ffe0e0 80%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -5px -5px 10px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(5) .pedal:before { 
+    background: linear-gradient(135deg, white 55%, #ffe0e0 75%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -6px -6px 12px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(6) .pedal:before { 
+    background: linear-gradient(135deg, white 50%, #ffe0e0 75%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -7px -7px 14px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
+.rose:nth-child(7) .pedal:before { 
+    background: linear-gradient(135deg, white 45%, #ffe0e0 70%, #ffc0c0 90%, #ffb3b3 100%);
+    box-shadow: 
+        inset -8px -8px 16px rgba(255,0,0,0.2),
+        1px 1px 3px rgba(255,0,0,0.15);
+    border: 1px solid rgba(255,150,150,0.4);
+}
 
+/* Enhanced shimmer animation */
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.pedal:before {
+    background-size: 200% 200%;
+    animation: shimmer 6s ease infinite;
+}
+
+/* Enhanced overall rose appearance */
+.roses {
+    filter: drop-shadow(0 0 10px rgba(255,150,150,0.3));
+}
 .roses {
 position: relative;
 height: 50vmin;
