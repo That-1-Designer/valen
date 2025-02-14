@@ -22,3 +22,45 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.addEventListener('click', closeLetter);
     letterOverlay.addEventListener('click', closeLetter);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('overlay');
+    const polaroids = document.querySelectorAll('.polaroid');
+
+    polaroids.forEach(polaroid => {
+        polaroid.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (this.classList.contains('enlarged')) {
+                // Shrink
+                this.classList.remove('enlarged');
+                overlay.classList.remove('active');
+            } else {
+                // Remove enlarged class from any other polaroids
+                document.querySelectorAll('.polaroid.enlarged').forEach(p => {
+                    p.classList.remove('enlarged');
+                });
+                // Enlarge this one
+                this.classList.add('enlarged');
+                overlay.classList.add('active');
+            }
+        });
+    });
+
+    // Close on overlay click
+    overlay.addEventListener('click', function() {
+        document.querySelectorAll('.polaroid.enlarged').forEach(polaroid => {
+            polaroid.classList.remove('enlarged');
+        });
+        overlay.classList.remove('active');
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.polaroid.enlarged').forEach(polaroid => {
+                polaroid.classList.remove('enlarged');
+            });
+            overlay.classList.remove('active');
+        }
+    });
+});
